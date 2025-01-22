@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kallmann-Syndrom Projekt</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link external CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Add Google Font -->
+</head>
+<body>
+    <header></header>
+    <div id="title">Kallmann <span>Syndrom</span></div>
+    <div id="subtitle">Ein biologisches Projekt über das Kallmann-Syndrom</div>
+    <div id="author">Erstellt von Niclas Wagener (10b)</div>
+    <div class="section"></div>
+    <div class="section crisis-section">
+        <div class="problem-statement">
+            <span class="word">Was</span>
+            <br>
+            <span class="word">ist</span>
+            <br>
+            <span class="word">das</span>
+            <br>
+            <span class="word">Kallmann-Syndrom?</span>
+        </div>
+
+        <div class="crisis-section">
+            <h2 class="crisis-title">Die <span class="highlight">Grundlagen</span> des <span class="highlight">Kallmann-Syndroms</span></h2>
+            <p>Das Kallmann-Syndrom ist eine seltene genetische Erkrankung, die durch das Fehlen oder die Verzögerung der Pubertät und einen beeinträchtigten Geruchssinn gekennzeichnet ist. Es wird durch Mutationen in verschiedenen Genen verursacht, die die Entwicklung des Hypothalamus und der Hypophyse beeinflussen.</p>
+            <p>Die Erkrankung kann sowohl Männer als auch Frauen betreffen. Eine frühzeitige Diagnose und Behandlung sind entscheidend, um die Lebensqualität der Betroffenen zu verbessern.</p>
+            <p>Zusätzlich zu den Hauptsymptomen können Betroffene auch unter weiteren gesundheitlichen Problemen leiden, wie z.B. einer verminderten Knochendichte und Unfruchtbarkeit.</p>
+        </div>
+
+        <div class="crisis-content">
+            <!-- Info Cards -->
+            <div class="icon-section">
+                <div class="info-icon-card" data-info="info-1">
+                    <img src="https://assets.codepen.io/4417856/acident.png" alt="Symptome">
+                    <h3>Symptome</h3>
+                    <p class="hidden-info">
+                        <li>Verzögerte oder fehlende Pubertät</li>
+                        <li>Beeinträchtigter Geruchssinn</li>
+                        <li>Andere hormonelle Defizite</li>
+                        <li>Unfruchtbarkeit</li>
+                        <li>Geringe Knochendichte</li>
+                        <li>Geringe Muskelmasse</li>
+                        <li>Verlust des Geschmackssinns</li>
+                    </p>
+                </div>
+                <div class="info-icon-card" data-info="info-2">
+                    <img src="https://assets.codepen.io/4417856/dollar.png" alt="Ursachen">
+                    <h3>Ursachen</h3>
+                    <p class="hidden-info">
+                        <li>Genetische Mutationen</li>
+                        <li>Hormonelle Ungleichgewichte</li>
+                        <li>Störungen in der Entwicklung des Hypothalamus</li>
+                        <li>Erbliche Faktoren</li>
+                        <li>Umweltfaktoren</li>
+                    </p>
+                </div>
+                <div class="info-icon-card" data-info="info-3">
+                    <img src="https://assets.codepen.io/4417856/speedomater.png" alt="Diagnose">
+                    <h3>Diagnose</h3>
+                    <p class="hidden-info">
+                        <li>Klinische Bewertung</li>
+                        <li>Hormonuntersuchungen</li>
+                        <li>Genetische Tests</li>
+                        <li>Bildgebende Verfahren</li>
+                        <li>Familienanamnese</li>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bar Chart -->
+            <div class="chart">
+                <canvas id="fatalitiesChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Footer Quote -->
+        <p class="crisis-quote">"Das Verständnis des Kallmann-Syndroms ist der erste Schritt zu einer effektiven Behandlung."</p>
+    </div>
+
+    <!-- Section 1: Symptoms -->
+    <div class="section existing-systems-section">
+        <div class="problem-statement">Symptome</div>
+        <h2 class="section-title">Häufige <span class="highlight">Symptome</span> des <span class="highlight">Kallmann-Syndroms</span></h2>
+        <div class="content-grid">
+            <div class="info-card">
+                <img src="camera-icon.png" alt="Verzögerte Pubertät">
+                <ul>
+                    <li><strong>Verzögerte Pubertät:</strong> Mangel an sexueller Entwicklung</li>
+                    <li>Niedrige Spiegel von Sexualhormonen</li>
+                    <li>Geringe Muskelmasse</li>
+                    <li>Geringe Knochendichte</li>
+                    <li>Unfruchtbarkeit</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <img src="cost-icon.png" alt="Beeinträchtigter Geruchssinn">
+                <ul>
+                    <li><strong>Beeinträchtigter Geruchssinn:</strong> Reduzierte oder fehlende Fähigkeit zu riechen</li>
+                    <li>Verlust des Geschmackssinns</li>
+                    <li>Beeinträchtigung des Geschmackssinns</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Causes -->
+    <div class="section limitations-section">
+        <div class="problem-statement">Ursachen</div>
+        <h2 class="section-title">Verstehen der <span class="highlight">Ursachen</span> des <span class="highlight">Kallmann-Syndroms</span></h2>
+        <div class="content-grid">
+            <div class="info-card">
+                <img src="speed-icon.png" alt="Genetische Mutationen">
+                <ul>
+                    <li><strong>Genetische Mutationen:</strong> Veränderungen in bestimmten Genen</li>
+                    <li>Erbliche Faktoren</li>
+                    <li>Vererbungsmuster</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <img src="tickets-icon.png" alt="Hormonelle Ungleichgewichte">
+                <ul>
+                    <li><strong>Hormonelle Ungleichgewichte:</strong> Störungen in der Hormonproduktion</li>
+                    <li>Beeinträchtigung der Hypothalamus-Funktion</li>
+                    <li>Störungen der Hypophysenfunktion</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Diagnosis -->
+    <div class="section solution-section">
+        <div class="problem-statement">Diagnose</div>
+        <h2 class="section-title">Wie das <span class="highlight">Kallmann-Syndrom</span> <span class="highlight">diagnostiziert</span> wird</h2>
+        <div class="content-grid">
+            <div class="info-card">
+                <img src="drone-icon.png" alt="Klinische Bewertung">
+                <h3>Klinische Bewertung</h3>
+                <ul>
+                    <li>Körperliche Untersuchung</li>
+                    <li>Überprüfung der Krankengeschichte</li>
+                    <li>Familienanamnese</li>
+                    <li>Beurteilung der Pubertätsentwicklung</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <img src="solution-icon.png" alt="Hormonuntersuchungen">
+                <h3>Hormonuntersuchungen</h3>
+                <ul>
+                    <li>Bluttests zur Messung der Hormonspiegel</li>
+                    <li>Speicheltests</li>
+                    <li>Urinuntersuchungen</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <img src="solution-icon.png" alt="Genetische Tests">
+                <h3>Genetische Tests</h3>
+                <ul>
+                    <li>Identifizierung spezifischer genetischer Mutationen</li>
+                    <li>Pränatale Tests</li>
+                    <li>Genetische Beratung</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Treatment -->
+    <div class="section poc-section">
+        <div class="problem-statement">Behandlung</div>
+        <h2 class="section-title">Behandlungs<span class="highlight">optionen</span> für das <span class="highlight">Kallmann-Syndrom</span></h2>
+        <div class="content-grid">
+            <div class="info-card">
+                <h3>Hormontherapie</h3>
+                <ul>
+                    <li>Testosteron- oder Östrogentherapie</li>
+                    <li>Einleitung der Pubertät und Erhaltung sekundärer Geschlechtsmerkmale</li>
+                    <li>Erhaltung der Knochendichte</li>
+                    <li>Regelmäßige Überwachung der Hormonspiegel</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Fruchtbarkeitsbehandlung</h3>
+                <ul>
+                    <li>Gonadotropin-Injektionen</li>
+                    <li>Assistierte Reproduktionstechnologien</li>
+                    <li>In-vitro-Fertilisation (IVF)</li>
+                    <li>Intrazytoplasmatische Spermieninjektion (ICSI)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: Living with Kallmann Syndrome -->
+    <div class="section additional-advantages-section">
+        <div class="problem-statement">Leben mit dem Kallmann-Syndrom</div>
+        <h2 class="section-title">Umgang mit dem <span class="highlight">Leben</span> mit dem <span class="highlight">Kallmann-Syndrom</span></h2>
+        <div class="content-grid">
+            <div class="info-card">
+                <h3>Unterstützung und Ressourcen</h3>
+                <ul>
+                    <li>Patientenunterstützungsgruppen</li>
+                    <li>Bildungsressourcen</li>
+                    <li>Professionelle Beratung</li>
+                    <li>Online-Foren und Communities</li>
+                    <li>Selbsthilfegruppen</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Lebensstil und Management</h3>
+                <ul>
+                    <li>Gesunde Ernährung</li>
+                    <li>Regelmäßige Bewegung</li>
+                    <li>Stressbewältigung</li>
+                    <li>Regelmäßige medizinische Überwachung</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Research and Future Directions -->
+    <div class="section crime-tracking-section">
+        <div class="problem-statement">Forschung</div>
+        <h2 class="section-title">Aktuelle <span class="highlight">Forschung</span> und <span class="highlight">zukünftige Richtungen</span></h2>
+        <div class="content-grid">
+            <div class="info-card">
+                <h3>Laufende Studien</h3>
+                <ul>
+                    <li>Genetische Forschung</li>
+                    <li>Neue Behandlungsansätze</li>
+                    <li>Langzeitstudien zur Lebensqualität</li>
+                    <li>Forschung zu neuen Diagnosemethoden</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Zukünftige Richtungen</h3>
+                <ul>
+                    <li>Entwicklung neuer Therapien</li>
+                    <li>Verbesserung der Diagnosegenauigkeit</li>
+                    <li>Erforschung der genetischen Grundlagen</li>
+                    <li>Internationale Forschungskooperationen</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: Conclusion -->
+    <div class="section conclusion-section">
+        <div class="problem-statement">Fazit</div>
+        <h2 class="section-title">Verständnis des <span class="highlight">Kallmann-Syndroms</span></h2>
+        <div class="content-conclusion">
+            <h3>Zusammenfassung</h3>
+            <p>“Dieses Projekt bietet umfassende Informationen über das Kallmann-Syndrom, einschließlich seiner Symptome, Ursachen, Diagnose und Behandlungsmöglichkeiten. Es ist wichtig, das Bewusstsein für diese seltene Erkrankung zu schärfen und die Forschung zu fördern, um die Lebensqualität der Betroffenen zu verbessern.”</p>
+            <h3>Aufruf zum Handeln</h3>
+            <p>“Unterstützen Sie die Forschung und das Bewusstsein für das Kallmann-Syndrom. Ihr Engagement kann einen bedeutenden Unterschied im Leben der Betroffenen machen.”</p>
+        </div>
+    </div>
+
+    <div class="section"></div>
+    <footer>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.153.0/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script> <!-- Link external JavaScript -->
+</body>
+</html>
