@@ -108,6 +108,31 @@ header {
     animation-delay: 3s; /* Wait for the subtitle animation to finish */
 }
 
+/* GitHub repository link styling */
+#repo-link {
+    font-size: 1rem;
+    color: lightgrey;
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    text-align: center;
+    position: absolute;
+    top: 67%; /* Reduced spacing below the author */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 3.5s ease forwards;
+    animation-delay: 3.5s; /* Wait for the author animation to finish */
+}
+
+#repo-link a {
+    color: lightgrey;
+    text-decoration: none;
+    cursor: pointer; /* Ensure the link is clickable */
+}
+
+#repo-link a:hover {
+    text-decoration: underline;
+}
+
 /* Rising animation for the title */
 @keyframes riseUp {
     0% {

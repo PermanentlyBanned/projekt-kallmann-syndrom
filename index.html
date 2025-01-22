@@ -12,6 +12,9 @@
     <div id="title">Kallmann <span>Syndrom</span></div>
     <div id="subtitle">Ein biologisches Projekt über das Kallmann-Syndrom</div>
     <div id="author">Erstellt von Niclas Wagener (10b)</div>
+    <div id="repo-link">
+        <p>Drücken Sie "G", um das <a href="https://github.com/PermanentlyBanned/projekt-kallmann-syndrom" target="_blank">GitHub Repository</a> zu öffnen.</p>
+    </div>
     <div class="section"></div>
     <div class="section crisis-section">
         <div class="problem-statement">
@@ -259,12 +262,17 @@
     </div>
 
     <div class="section"></div>
-    <footer>
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.153.0/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js"></script> <!-- Link external JavaScript -->
+    <script>
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'G' || event.key === 'g') {
+                window.open('https://github.com/PermanentlyBanned/projekt-kallmann-syndrom', '_blank');
+            }
+        });
+    </script>
 </body>
 </html>
