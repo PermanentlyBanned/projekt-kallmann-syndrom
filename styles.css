@@ -1,19 +1,17 @@
-/* General body settings */
 body {
     margin: 0;
     color: white;
     height: 100%;
     background:
-    radial-gradient(circle at -35% 20%, #FF69B4 0%, #FF69B4 -10%, transparent 45%), /* Pink gradient */
-    radial-gradient(circle at 135% 80%, #82B1FF 0%, #82B1FF -10%, transparent 45%), /* Blue gradient */
-    black; /* Dark base color */
-    background-size: 100% 100%; /* Ensure gradients stretch across the viewport */
-    background-repeat: no-repeat; /* Prevent gradients from repeating */
-    background-attachment: fixed; /* Keep the background fixed during scroll */
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    radial-gradient(circle at -35% 20%, #FF69B4 0%, #FF69B4 -10%, transparent 45%), 
+    radial-gradient(circle at 135% 80%, #82B1FF 0%, #82B1FF -10%, transparent 45%), 
+    black; 
+    background-size: 100% 100%; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    font-family: 'Roboto', sans-serif; 
 }
 
-/* Header styling */
 header {
     position: fixed;
     top: 0;
@@ -27,16 +25,15 @@ header {
     justify-content: space-between;
     padding: 0 20px;
     border-bottom: 1px solid #444;
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif; 
 }
 
-/* Title styling */
 #title {
     font-size: 4rem;
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif; 
     text-align: center;
     position: absolute;
-    top: 50%; /* Start below the viewport */
+    top: 50%; 
     left: 50%;
     transform: translate(-50%, -50%);
     background: linear-gradient(to right, #d3d3d3, #ffffff);
@@ -48,115 +45,106 @@ header {
     transition: font-size 0.3s ease, position 0.3s ease, top 0.3s ease;
 }
 
-/* Sticky Title Styling (Locked to Header) */
 #title.locked {
-    position: fixed; /* Stick it to the viewport */
-    top: 2.5%; /* Same height as the header */
+    position: fixed; 
+    top: 2.5%; 
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2rem; /* Adjust font size */
-    z-index: 15; /* Stay on top of the header content */
+    font-size: 2rem; 
+    z-index: 15; 
 }
 
-/* Gradient for "AI" */
 #title span {
     background: linear-gradient(to right, #f7879a, #d2235c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Subtitle styling */
 #subtitle {
     font-size: 1.2rem;
     color: white;
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif; 
     text-align: center;
     position: absolute;
-    top: 60%; /* Below the title */
+    top: 60%; 
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
     overflow: hidden;
-    border-right: 2px solid white; /* Blinking cursor */
-    width: 0; /* Hidden by default */
-    opacity: 0; /* Start invisible */
+    border-right: 2px solid white; 
+    width: 0; 
+    opacity: 0; 
     animation: typing 3s steps(40, end) forwards, blink 0.5s step-end infinite alternate;
-    animation-delay: 1.5s; /* Wait for the title animation to finish */
-    display: inline-block; /* Adjust width to fit text content */
+    animation-delay: 1.5s; 
+    display: inline-block; 
 }
 
-/* Add this */
 #subtitle.stopped-blinking {
-    animation: none; /* Stops blinking */
-    border-right: none; /* Remove the cursor */
-    width: auto; /* Ensure the text stays visible */
-    opacity: 1; /* Ensure it remains fully visible */
+    animation: none; 
+    border-right: none; 
+    width: auto; 
+    opacity: 1; 
 }
 
-/* Author styling */
 #author {
     font-size: 1rem;
     color: lightgrey;
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif; 
     text-align: center;
     position: absolute;
-    top: 65%; /* Below the subtitle */
+    top: 65%; 
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0; /* Start invisible */
+    opacity: 0; 
     animation: fadeIn 3s ease forwards;
-    animation-delay: 3s; /* Wait for the subtitle animation to finish */
+    animation-delay: 3s; 
 }
 
-/* GitHub repository link styling */
 #repo-link {
     font-size: 1rem;
     color: lightgrey;
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif; 
     text-align: center;
     position: absolute;
-    top: 67%; /* Reduced spacing below the author */
+    top: 67%; 
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0; /* Start invisible */
+    opacity: 0; 
     animation: fadeIn 3.5s ease forwards;
-    animation-delay: 3.5s; /* Wait for the author animation to finish */
+    animation-delay: 3.5s; 
 }
 
 #repo-link a {
     color: lightgrey;
     text-decoration: none;
-    cursor: pointer; /* Ensure the link is clickable */
+    cursor: pointer; 
 }
 
 #repo-link a:hover {
     text-decoration: underline;
 }
 
-/* Rising animation for the title */
 @keyframes riseUp {
     0% {
-        top: 47%; /* Start below the viewport */
+        top: 47%; 
         opacity: 0;
     }
     100% {
-        top: 50%; /* Centered vertically */
+        top: 50%; 
         opacity: 1;
         transform: translate(-50%, -50%);
     }
 }
 
-/* Typing animation for the subtitle */
 @keyframes typing {
     from {
         width: 0;
     }
     to {
-        width: 37%; /* Expand to full width */
+        width: 37%; 
     }
 }
 
-/* Blinking cursor animation for the subtitle */
 @keyframes blink {
     0%, 100% {
         border-color: white;
@@ -175,7 +163,6 @@ header {
     }
 }
 
-/* Fade-in animation for the author */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -185,10 +172,9 @@ header {
     }
 }
 
-/* Section styling */
 .section {
-    height: calc(100vh - 80px); /* Adjust for fixed header */
-    padding-top: 80px; /* Space below the fixed header */
+    height: calc(100vh - 80px); 
+    padding-top: 80px; 
     background: transparent;
     display: flex;
     flex-direction: column;
@@ -196,63 +182,58 @@ header {
     align-items: center;
 }
 
-/* Crisis Section Styling */
 .crisis-section {
-    padding: 40px 10%; /* Adjusted padding */
+    padding: 40px 10%; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 150px; /* Add spacing between elements */
+    gap: 150px; 
 }
 
-/* Crisis Section Title Styling */
 .crisis-title {
     font-size: 2.5rem;
     line-height: 1.2;
     text-align: center;
-    color: white !important; /* Ensure default color is white */
-    white-space: nowrap; /* Prevent wrapping during typewriting */
-    overflow: hidden; /* Hide overflowing text */
-    border-right: 2px solid white; /* Add cursor effect */
-    width: 0; /* Start with no width for typewriting */
-    opacity: 0; /* Hidden initially */
-    transition: opacity 0.5s ease; /* Smooth fade-in effect */
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    color: white !important; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    border-right: 2px solid white; 
+    width: 0; 
+    opacity: 0; 
+    transition: opacity 0.5s ease; 
+    font-family: 'Roboto', sans-serif; 
 }
 
-/* Crisis Title Typewriting Animation */
 @keyframes typing {
     from {
-        width: 0; /* Start with no width */
+        width: 0; 
     }
     to {
-        width: 100%; /* Expand to full width */
+        width: 100%; 
     }
 }
 
 @keyframes blink {
     from {
-        border-right-color: white; /* Cursor visible */
+        border-right-color: white; 
     }
     to {
-        border-right-color: transparent; /* Cursor hidden */
+        border-right-color: transparent; 
     }
 }
 
 .crisis-title.typing {
-    animation: typing 3s steps(30, end), blink 0.5s step-end infinite; /* Infinite blink for cursor */
-    opacity: 1; /* Ensure the text is visible */
-    width: auto; /* Allow the full content width after typing */
-    border-right: none; /* Remove the cursor effect after animation */
+    animation: typing 3s steps(30, end), blink 0.5s step-end infinite; 
+    opacity: 1; 
+    width: auto; 
+    border-right: none; 
 }
 
-/* Highlighted Text Styling */
 .crisis-title .highlight {
-    color: #FF69B4 !important; /* Override other conflicting styles */
+    color: #FF69B4 !important; 
 }
 
-/* Problem Statement */
 .problem-statement {
     position: absolute;
     top: 8%;
@@ -261,83 +242,79 @@ header {
     font-weight: bold;
     text-align: left;
     margin-bottom: 20px;
-    opacity: 0; /* Initially hidden */
-    transform: translateX(-100%); /* Slide from outside left */
-    transition: all 1s ease-out; /* Smooth animation */
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    opacity: 0; 
+    transform: translateX(-100%); 
+    transition: all 1s ease-out; 
+    font-family: 'Roboto', sans-serif; 
 }
 
 .problem-statement.animate {
     opacity: 1;
-    transform: translateX(0); /* Move into position */
+    transform: translateX(0); 
 }
 
-/* Individual Words */
 .problem-statement .word {
     display: inline-block;
     opacity: 0;
-    transform: translateX(-100%); /* Slide in from below */
+    transform: translateX(-100%); 
     transition: all 0.5s ease-out;
 }
 
 .problem-statement .word.animate {
     opacity: 1;
-    transform: translateX(0); /* Move into position */
+    transform: translateX(0); 
 }
 
-/* Icon Section */
 .icon-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 50vh; /* Ensure it's centered vertically */
-    width: 100%; /* Full width */
-    gap: 40px; /* Spacing between icons */
+    height: 50vh; 
+    width: 100%; 
+    gap: 40px; 
 }
 
-/* Info Icon Cards */
 .info-icon-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    width: auto; /* Remove fixed width */
-    height: auto; /* Remove fixed height */
-    background: none; /* Remove background gradient */
-    box-shadow: none; /* Remove shadow if not needed */
-    transition: transform 0.5s ease; /* Keep hover transform effect */
+    width: auto; 
+    height: auto; 
+    background: none; 
+    box-shadow: none; 
+    transition: transform 0.5s ease; 
 }
 
 .info-icon-card img {
-    width: 150px; /* Adjust size of icons */
-    height: auto; /* Maintain aspect ratio */
+    width: 150px; 
+    height: auto; 
 }
 
 .info-icon-card h3 {
     color: white;
     margin-top: 10px;
     font-size: 1.2rem;
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif; 
 }
 
 .info-icon-card .hidden-info {
     position: absolute;
-    bottom: -60px; /* Position text below the icon */
+    bottom: -60px; 
     text-align: center;
     color: white;
-    opacity: 0; /* Hidden by default */
-    transform: translateY(20px); /* Start slightly below */
+    opacity: 0; 
+    transform: translateY(20px); 
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Icon animations */
 @keyframes iconMoveLeft {
     from {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-200px); /* Slide to the left */
+        transform: translateX(-200px); 
     }
 }
 
@@ -346,7 +323,7 @@ header {
         transform: translateY(0);
     }
     to {
-        transform: translateY(-200px); /* Slide upward */
+        transform: translateY(-200px); 
     }
 }
 
@@ -355,22 +332,20 @@ header {
         transform: translateX(0);
     }
     to {
-        transform: translateX(200px); /* Slide to the right */
+        transform: translateX(200px); 
     }
 }
 
-/* Hover Effect (Optional) */
 .info-icon-card:hover img {
-    transform: scale(1.1); /* Slight enlargement on hover */
+    transform: scale(1.1); 
 }
 
-/* Chart Styling */
 .chart {
     margin: 40px auto;
     text-align: center;
     width: 90%;
-    max-width: 800px; /* Increased max width */
-    height: 400px; /* Increased height */
+    max-width: 800px; 
+    height: 400px; 
 }
 
 canvas {
@@ -378,61 +353,55 @@ canvas {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Crisis Quote */
 .crisis-quote {
     margin-top: -5px;
     font-size: 1.2rem;
     text-align: center;
     color: lightgrey;
     font-style: italic;
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif; 
 }
 
-/* Animation Classes */
 .info-icon-card:hover {
-    transform: scale(1.1); /* Enlarge slightly */
+    transform: scale(1.1); 
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
 .info-icon-card.active .hidden-info {
-    opacity: 1; /* Reveal text */
-    transform: translateY(0); /* Slide into position */
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
-/* Section Styling */
 .section {
-    padding: 80px 10%; /* Increased padding for better spacing */
+    padding: 80px 10%; 
     color: white;
     text-align: center;
     position: relative;
-    height: auto; /* Adjust height for responsive content */
-    min-height: 100vh; /* Ensure full height */
+    height: auto; 
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    background: transparent; /* Ensure consistent black background */
+    justify-content: center; 
+    align-items: center; 
+    background: transparent; 
 }
 
-/* Title Spacing */
 .section-title {
-    font-size: 2.5rem; /* Reduced font size for responsiveness */
-    margin-bottom: 30px; /* Adjusted spacing */
-    color: #f5f5f5; /* Slightly lighter title color */
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-size: 2.5rem; 
+    margin-bottom: 30px; 
+    color: #f5f5f5; 
+    font-family: 'Roboto', sans-serif; 
 }
 
-/* Content Grid */
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: 30px; /* Spacing between items */
-    width: 100%; /* Full width */
-    max-width: 1200px; /* Restrict maximum width */
-    padding: 0 20px; /* Add inner padding */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; 
+    width: 100%; 
+    max-width: 1200px; 
+    padding: 0 20px; 
 }
 
-/* General Info Cards */
 .info-card {
     background: linear-gradient(to bottom, #2b2b2b, #1a1a1a);
     padding: 20px;
@@ -441,7 +410,7 @@ canvas {
     text-align: left;
     font-size: 1.2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif; 
 }
 
 .info-card img {
@@ -465,32 +434,29 @@ canvas {
     color: crimson;
 }
 
-/* Grid Layouts */
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Default: Two equal columns */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 40px;
 }
 
 .enforcement-poc-section .content-grid,
 .additional-advantages-section .content-grid {
-    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-template-columns: 1fr 1fr; 
 }
 
 .crime-tracking-section .content-grid,
 .insurance-collaboration-section .content-grid,
 .government-mapping-section .content-grid {
-    grid-template-columns: 1fr; /* Single column for full-width items */
+    grid-template-columns: 1fr; 
     gap: 20px;
 }
 
-/* Highlight Styles */
 .highlight {
     color: crimson;
     font-weight: bold;
 }
 
-/* Section Styling */
 .section {
     padding: 60px 5%;
     color: white;
@@ -503,10 +469,9 @@ canvas {
     text-align: center;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .content-grid {
-        grid-template-columns: 1fr; /* Single-column layout */
+        grid-template-columns: 1fr; 
     }
 
     .section-title {
@@ -523,39 +488,34 @@ canvas {
     }
 }
 
-/* Competitive Analysis Section */
 .competition-section .content-grid,
 .features-comparison-section .content-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Four columns for icons and text */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
 }
 
-/* Market Opportunity Section */
 .market-opportunity-section .content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns for market data */
+    grid-template-columns: 1fr 1fr; 
     gap: 40px;
 }
 
-/* ROI and Business Models */
 .market-opportunity-details .content-grid,
 .business-model-section .content-grid,
 .investment-opportunity-section .content-grid {
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-template-columns: repeat(3, 1fr); 
 }
 
 .roi-section .content-grid {
-    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-template-columns: 1fr 1fr; 
 }
 
-/* General Grid Layout */
 .content-grid {
     display: grid;
     gap: 20px;
 }
 
-/* Info Cards */
 .info-card {
     background: linear-gradient(to bottom, #2b2b2b, #1a1a1a);
     padding: 20px;
@@ -571,7 +531,6 @@ canvas {
     margin-bottom: 10px;
 }
 
-/* Chart Container */
 .chart-container img {
     width: 100%;
     max-width: 600px;
@@ -580,33 +539,30 @@ canvas {
     display: block;
 }
 
-/* Highlight Styles */
 .highlight {
     color: crimson;
     font-weight: bold;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .content-grid {
-        grid-template-columns: 1fr; /* Single column for smaller screens */
+        grid-template-columns: 1fr; 
     }
 
     .section-title {
-        font-size: 2rem; /* Adjust section title size */
+        font-size: 2rem; 
     }
 
     .info-card img {
-        width: 50px; /* Smaller icons for small screens */
+        width: 50px; 
         height: 50px;
     }
 
     .info-card {
-        font-size: 1rem; /* Smaller font size */
+        font-size: 1rem; 
     }
 }
 
-/* General Info Card Styling */
 .info-card {
     background: linear-gradient(to bottom, #2b2b2b, #1a1a1a);
     padding: 20px;
@@ -622,10 +578,9 @@ canvas {
 }
 
 .info-card ul li {
-    margin-bottom: 10px; /* Ensure consistent spacing between list items */
+    margin-bottom: 10px; 
 }
 
-/* ROI Graph Section */
 .content-graph {
     text-align: center;
     margin-top: 20px;
@@ -633,7 +588,7 @@ canvas {
 
 .content-graph img {
     width: 100%;
-    max-width: 600px; /* Keep the graph image responsive */
+    max-width: 600px; 
     height: auto;
 }
 
@@ -644,19 +599,18 @@ canvas {
     font-weight: bold;
 }
 
-/* Timeline Layout */
 .timeline {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    gap: 20px; /* Consistent spacing between phases */
+    gap: 20px; 
 }
 
 .phase {
     background: #2b2b2b;
     padding: 20px;
     border-radius: 10px;
-    width: 18%; /* Maintain proportional widths for all phases */
+    width: 18%; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     text-align: left;
 }
@@ -676,16 +630,14 @@ canvas {
 
 .phase ul li {
     font-size: 1rem;
-    margin-bottom: 10px; /* Maintain visual separation between list items */
+    margin-bottom: 10px; 
 }
 
-/* Highlight Text Styling */
 .highlight {
     color: crimson;
     font-weight: bold;
 }
 
-/* Risks and Mitigation Section */
 .risks-mitigation-section {
     padding: 40px;
     background-color: #1a1a1a;
@@ -728,76 +680,72 @@ canvas {
     vertical-align: middle;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .timeline {
-        flex-direction: column; /* Stack phases vertically on small screens */
+        flex-direction: column; 
     }
 
     .phase {
-        width: 100%; /* Use full width for each phase */
+        width: 100%; 
     }
 
     .content-graph img {
-        max-width: 100%; /* Ensure graph image adjusts to smaller screens */
+        max-width: 100%; 
     }
 
     .risk-column {
-        width: 100%; /* Stack risk columns on smaller screens */
-        margin-bottom: 20px; /* Add spacing between stacked columns */
+        width: 100%; 
+        margin-bottom: 20px; 
     }
 }
 
-/* Conclusion Section */
 .conclusion-section {
-    padding: 40px 20px; /* Added side padding for better spacing */
+    padding: 40px 20px; 
     background-color: #1a1a1a;
     color: white;
     text-align: center;
 }
 
 .content-conclusion h3 {
-    font-size: 2rem; /* Slightly increased font size for better hierarchy */
+    font-size: 2rem; 
     margin-bottom: 20px;
     color: crimson;
     font-weight: bold;
-    text-transform: uppercase; /* Optional: Adds a modern touch */
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    text-transform: uppercase; 
+    font-family: 'Roboto', sans-serif; 
 }
 
 .content-conclusion p {
     font-size: 1.2rem;
-    line-height: 1.8; /* Improved readability */
-    margin: 20px auto; /* Consistent spacing around paragraphs */
-    max-width: 75%; /* Slightly reduced max-width for better alignment */
+    line-height: 1.8; 
+    margin: 20px auto; 
+    max-width: 75%; 
     text-align: justify;
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    font-family: 'Roboto', sans-serif; 
 }
 
-/* Highlight Styles */
 .highlight {
     color: crimson;
     font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle emphasis for highlighted text */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .conclusion-section {
-        padding: 30px 15px; /* Adjusted padding for smaller screens */
+        padding: 30px 15px; 
     }
 
     .content-conclusion h3 {
-        font-size: 1.5rem; /* Reduced size for headings on smaller screens */
+        font-size: 1.5rem; 
     }
 
     .content-conclusion p {
         font-size: 1rem;
-        max-width: 100%; /* Full width for better readability on mobile */
+        max-width: 100%; 
     }
 
     .risk-column {
-        width: 100%; /* Full width for stacked risk columns */
+        width: 100%; 
         margin: 15px 0;
     }
 }

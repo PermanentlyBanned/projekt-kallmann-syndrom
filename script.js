@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const subtitle = document.getElementById("subtitle");
 
     title.addEventListener("animationend", () => {
-        subtitle.style.opacity = "1";
-        subtitle.classList.add("stopped-blinking");
+        subtitle.style.opacity = "1"; 
+        subtitle.classList.add("stopped-blinking"); 
     });
 
     title.addEventListener("animationend", () => {
-        title.style.animation = "";
+        title.style.animation = ""; 
     });
 
     window.addEventListener("scroll", () => {
@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (scrollPosition > title.offsetTop - header.offsetHeight) {
             title.classList.add("locked");
-        } else if (scrollPosition < subtitle.offsetTop - header.offsetHeight) {
+        }
+
+        else if (scrollPosition < subtitle.offsetTop - header.offsetHeight) {
             title.classList.remove("locked");
         }
     });
@@ -29,18 +31,20 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 problemStatement.classList.add('animate');
+
                 words.forEach((word, index) => {
                     setTimeout(() => {
                         word.classList.add('animate');
-                    }, index * 500);
+                    }, index * 500); 
                 });
             } else {
+
                 problemStatement.classList.remove('animate');
                 words.forEach((word) => word.classList.remove('animate'));
             }
         });
     }, {
-        threshold: 0.5,
+        threshold: 0.5, 
     });
 
     observer.observe(problemStatement);
@@ -51,11 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const crisisObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
+
                 crisisTitle.classList.add("typing");
 
                 crisisTitle.addEventListener("animationend", () => {
-                    crisisTitle.style.width = "auto";
-                    crisisTitle.style.borderRight = "none";
+                    crisisTitle.style.width = "auto"; 
+                    crisisTitle.style.borderRight = "none"; 
                 });
             }
         });
@@ -69,8 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
+
                     icons.forEach((icon, index) => {
-                        icon.style.animation = "";
+                        icon.style.animation = ""; 
                         if (index === 0) {
                             icon.style.animation = "iconMoveLeft 1s ease forwards";
                         } else if (index === 1) {
@@ -80,13 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     });
                 } else {
+
                     icons.forEach((icon) => {
-                        icon.style.animation = "";
+                        icon.style.animation = ""; 
                     });
                 }
             });
         },
-        { threshold: 0.1 }
+        { threshold: 0.1 } 
     );
 
     iconObserver.observe(crisisSection);
@@ -98,10 +105,10 @@ document.addEventListener("DOMContentLoaded", () => {
         datasets: [{
             label: "Fatalities",
             data: [9592, 11258, 12330, 12151, 11900],
-            backgroundColor: "rgba(255, 105, 180, 0.6)",
-            borderColor: "rgba(255, 105, 180, 1)",
+            backgroundColor: "rgba(255, 105, 180, 0.6)", 
+            borderColor: "rgba(255, 105, 180, 1)", 
             borderWidth: 1,
-            borderRadius: 15,
+            borderRadius: 15, 
         }]
     };
 
@@ -110,29 +117,29 @@ document.addEventListener("DOMContentLoaded", () => {
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: false, 
             plugins: {
                 legend: {
                     display: true,
                     labels: {
-                        color: "white"
+                        color: "white" 
                     }
                 }
             },
             scales: {
                 x: {
-                    ticks: { color: "white" },
-                    grid: { display: false }
+                    ticks: { color: "white" }, 
+                    grid: { display: false } 
                 },
                 y: {
-                    ticks: { color: "white" },
-                    grid: { color: "rgba(255, 255, 255, 0.2)" }
+                    ticks: { color: "white" }, 
+                    grid: { color: "rgba(255, 255, 255, 0.2)" } 
                 }
             },
             animation: {
-                duration: 4000,
-                easing: "easeOutQuart",
-                delay: (context) => context.dataIndex * 1000,
+                duration: 4000, 
+                easing: "easeOutQuart", 
+                delay: (context) => context.dataIndex * 1000, 
             }
         }
     };
@@ -143,12 +150,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const chartObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
+
                 fatalitiesChart.update();
-                chartObserver.unobserve(chartContainer);
+                chartObserver.unobserve(chartContainer); 
             }
         });
     });
 
     chartObserver.observe(chartContainer);
 });
-
