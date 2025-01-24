@@ -2,71 +2,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.getElementById("title");
     const subtitle = document.getElementById("subtitle");
 
+    // Combine both animationend callbacks for #title:
     title.addEventListener("animationend", () => {
-        subtitle.style.opacity = "1"; 
-        subtitle.classList.add("stopped-blinking"); 
-    });
+        subtitle.style.opacity = "1";
+        subtitle.classList.add("stopped-blinking");
+        title.style.animation = "";
+    }, { once: true });
 
-    title.addEventListener("animationend", () => {
-        title.style.animation = ""; 
-    });
+    const titleOriginalOffset = title.offsetTop;
 
     window.addEventListener("scroll", () => {
         const scrollPosition = window.scrollY;
         const header = document.querySelector("header");
 
-        if (scrollPosition > title.offsetTop - header.offsetHeight) {
+        if (scrollPosition > titleOriginalOffset - header.offsetHeight) {
             title.classList.add("locked");
-        }
-
-        else if (scrollPosition < subtitle.offsetTop - header.offsetHeight) {
+        } else {
             title.classList.remove("locked");
         }
     });
 
-    const problemStatement = document.querySelector('.problem-statement');
-    const words = document.querySelectorAll('.problem-statement .word');
+    const elementsToAnimate = [
+        { el: document.querySelector(".problem-statement"), words: document.querySelectorAll(".problem-statement .word") },
+        { el: document.querySelector(".crisis-section"), title: document.querySelector(".crisis-title") }
+    ];
 
-    const observer = new IntersectionObserver((entries) => {
+    const combinedObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                problemStatement.classList.add('animate');
-
-                words.forEach((word, index) => {
-                    setTimeout(() => {
-                        word.classList.add('animate');
-                    }, index * 500); 
-                });
-            } else {
-
-                problemStatement.classList.remove('animate');
-                words.forEach((word) => word.classList.remove('animate'));
+                if (entry.target.classList.contains("problem-statement")) {
+                    entry.target.classList.add("animate");
+                    entry.target.querySelectorAll(".word").forEach((word, index) => {
+                        setTimeout(() => word.classList.add("animate"), index * 500);
+                    });
+                }
+                if (entry.target.classList.contains("crisis-section")) {
+                    const crisisTitle = document.querySelector(".crisis-title");
+                    crisisTitle.classList.add("typing");
+                    crisisTitle.addEventListener("animationend", () => {
+                        crisisTitle.style.width = "auto";
+                        crisisTitle.style.borderRight = "none";
+                    }, { once: true });
+                }
             }
         });
-    }, {
-        threshold: 0.5, 
-    });
+    }, { threshold: 0.5 });
 
-    observer.observe(problemStatement);
-
-    const crisisSection = document.querySelector(".crisis-section");
-    const crisisTitle = document.querySelector(".crisis-title");
-
-    const crisisObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-
-                crisisTitle.classList.add("typing");
-
-                crisisTitle.addEventListener("animationend", () => {
-                    crisisTitle.style.width = "auto"; 
-                    crisisTitle.style.borderRight = "none"; 
-                });
-            }
-        });
-    });
-
-    crisisObserver.observe(crisisSection);
+    elementsToAnimate.forEach(item => combinedObserver.observe(item.el));
 
     const icons = document.querySelectorAll(".info-icon-card");
 
@@ -96,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { threshold: 0.1 } 
     );
 
-    iconObserver.observe(crisisSection);
+    iconObserver.observe(document.querySelector(".crisis-section"));
 
     const ctx = document.getElementById("fatalitiesChart").getContext("2d");
 
@@ -158,4 +140,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     chartObserver.observe(chartContainer);
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'G' || event.key === 'g') {
+        window.open('https://github.com/PermanentlyBanned/projekt-kallmann-syndrom', '_blank');
+    } else if (event.key === 'P' || event.key === 'p') {
+        window.location.href = "https://bio.niclas.vip/presentation";
+    }
 });
