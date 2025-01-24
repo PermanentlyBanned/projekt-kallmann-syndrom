@@ -146,6 +146,6 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'G' || event.key === 'g') {
         window.open('https://github.com/PermanentlyBanned/projekt-kallmann-syndrom', '_blank');
     } else if (event.key === 'P' || event.key === 'p') {
-        window.location.href = "https://bio.niclas.vip/presentation";
+        window.location.href = "https://presentation.niclas.vip/";
     }
 });
