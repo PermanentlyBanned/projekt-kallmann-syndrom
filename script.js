@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.getElementById("title");
     const subtitle = document.getElementById("subtitle");
 
-    // Combine both animationend callbacks for #title:
     title.addEventListener("animationend", () => {
         subtitle.style.opacity = "1";
         subtitle.classList.add("stopped-blinking");
@@ -11,7 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const titleOriginalOffset = title.offsetTop;
 
-    window.addEventListener("scroll", () => {
+    function debounce(func, wait = 20, immediate = true) {
+        let timeout;
+        return function(...args) {
+            const context = this;
+            const later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            const callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
+    window.addEventListener("scroll", debounce(() => {
         const scrollPosition = window.scrollY;
         const header = document.querySelector("header");
 
@@ -20,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             title.classList.remove("locked");
         }
-    });
+    }));
 
     const elementsToAnimate = [
         { el: document.querySelector(".problem-statement"), words: document.querySelectorAll(".problem-statement .word") },
@@ -140,6 +154,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     chartObserver.observe(chartContainer);
+
+    const toggle = document.getElementById('dark-mode-toggle');
+    toggle.setAttribute('aria-pressed', 'false');
+    toggle.addEventListener('click', () => {
+        const isDarkMode = document.body.classList.toggle('dark-mode');
+        toggle.textContent = isDarkMode ? '☀️' : '🌙';
+        toggle.setAttribute('aria-pressed', isDarkMode);
+    });
+
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
 });
 
 document.addEventListener('keydown', (event) => {

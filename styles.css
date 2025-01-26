@@ -1,3 +1,18 @@
+@import url('https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #ff69b4;
+    --secondary-color: #82b1ff;
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --accent-color: #d2235c;
+    
+    --dark-background-color: #121212;
+    --dark-text-color: #e0e0e0;
+    --transition-speed: 0.3s;
+}
+
 body {
     margin: 0;
     color: white;
@@ -9,7 +24,8 @@ body {
     background-size: 100% 100%; 
     background-repeat: no-repeat; 
     background-attachment: fixed; 
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Inter', sans-serif; 
+    transition: background 0.8s ease;
 }
 
 html {
@@ -30,7 +46,9 @@ header {
     padding: 0 20px;
     border-bottom: 1px solid #444;
     font-family: 'Roboto', sans-serif; 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
 }
 
 #title {
@@ -143,27 +161,27 @@ header {
 
 @keyframes typing {
     from {
-        width: 0;
+        width: 0; 
     }
     to {
-        width: 37%; 
+        width: 100%; 
     }
 }
 
 @keyframes blink {
-    0%, 100% {
-        border-color: white;
+    from {
+        border-right-color: white; 
     }
-    50% {
-        border-color: transparent;
+    to {
+        border-right-color: transparent; 
     }
 }
 
 @keyframes stopBlinking {
-    0%, 100% {
+    from {
         border-color: white;
     }
-    50% {
+    to {
         border-color: transparent;
     }
 }
@@ -181,13 +199,22 @@ header {
     height: calc(100vh - 80px); 
     padding-top: 80px; 
     background: transparent;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     animation: fadeInSection 0.7s ease-out forwards;
     background-image: radial-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
     background-blend-mode: overlay;
+    padding: 6rem 1.5rem !important; 
+    scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+    .section {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .section p {
@@ -217,24 +244,6 @@ header {
     opacity: 0; 
     transition: opacity 0.5s ease; 
     font-family: 'Roboto', sans-serif; 
-}
-
-@keyframes typing {
-    from {
-        width: 0; 
-    }
-    to {
-        width: 100%; 
-    }
-}
-
-@keyframes blink {
-    from {
-        border-right-color: white; 
-    }
-    to {
-        border-right-color: transparent; 
-    }
 }
 
 .crisis-title.typing {
@@ -420,6 +429,7 @@ canvas {
 }
 
 .info-card {
+    @extend .card; 
     background: linear-gradient(to bottom, #2b2b2b, #1a1a1a);
     padding: 20px;
     border-radius: 12px;
@@ -452,8 +462,16 @@ canvas {
 }
 
 .info-card:hover {
-    transform: scale(1.1); 
+    transform: scale(1.05);
     box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+    background: linear-gradient(to bottom, #353535, #262626);
+    transition: background 0.5s ease, transform 0.4s, box-shadow 0.4s;
+}
+
+.info-card h3 {
+    
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+    
 }
 
 .enforcement-poc-section .content-grid,
@@ -483,6 +501,9 @@ canvas {
     font-size: 2.2rem;
     margin-bottom: 20px;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 }
 
 @media (min-width: 1200px) {
@@ -513,6 +534,36 @@ canvas {
     .section p {
         font-size: 1rem;
         margin: 0.8rem 0;
+    }
+
+    .timeline {
+        flex-direction: column; 
+    }
+
+    .phase {
+        width: 100%; 
+    }
+
+    .content-graph img {
+        max-width: 100%; 
+    }
+
+    .risk-column {
+        width: 100%; 
+        margin: 15px 0;
+    }
+
+    .conclusion-section {
+        padding: 30px 15px; 
+    }
+
+    .content-conclusion h3 {
+        font-size: 1.5rem; 
+    }
+
+    .content-conclusion p {
+        font-size: 1rem;
+        max-width: 100%; 
     }
 }
 
@@ -760,4 +811,104 @@ canvas {
 ::selection {
     background-color: rgba(190, 52, 149, 0.26);
     color: white;
+}
+
+.glass-panel {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: pulseGlow 3s infinite alternate ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
+    transform: translateY(-4px);
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+}
+
+body.dark-mode {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-mode header {
+    background-color: rgba(18, 18, 18, 0.8);
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .info-card {
+    background: linear-gradient(to bottom, #3a3a3a, #2a2a2a);
+}
+
+body.dark-mode .crisis-title .highlight {
+    color: #ff69b4 !important;
+}
+
+body.dark-mode, 
+.dark-mode header, 
+.dark-mode .info-card, 
+.dark-mode .crisis-title .highlight {
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed) ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    transition: color var(--transition-speed) ease;
+}
+
+#dark-mode-toggle:hover {
+    color: var(--accent-color);
+}
+
+main {
+    scroll-snap-type: y mandatory;
 }
